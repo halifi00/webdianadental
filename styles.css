@@ -12,30 +12,30 @@
   --bg-primary: #fffef2;
   --bg-secondary: #f6f5e8;
   --bg-subtle: #ebeade;
-  
+
   /* Text Hierarchy - Rich contrast */
   --text-primary: #333333;
   --text-secondary: #666666;
   --text-light: #bcbbb4;
   --text-meta: #4a4a4a;
-  
+
   /* Interactive States - Minimal emphasis */
   --interactive-base: #333333;
   --interactive-hover: #000000;
   --focus-outline: #252525;
-  
+
   /* Borders & Separators */
   --border-light: #bcbbb4;
   --border-medium: #cccccc;
   --border-subtle: rgba(51, 51, 51, 0.2);
-  
+
   /* Gold Accent */
   --gold: #D4AF37;
   --gold-light: #E8D4A0;
-  
+
   /* Status Colors - Muted */
   --status-success: #4a4a4a;
-  
+
   /* Pastel Blue Accent */
   --pastel-blue: #C8D9E6;
   --pastel-blue-light: #E5EEF5;
@@ -188,7 +188,7 @@ body {
   .section-padding {
     padding: 80px 0;
   }
-  
+
   .section-padding-small {
     padding: 60px 0;
   }
@@ -198,7 +198,7 @@ body {
   .section-padding {
     padding: 60px 0;
   }
-  
+
   .section-padding-small {
     padding: 40px 0;
   }
@@ -464,7 +464,7 @@ body {
   .navigation-menu {
     display: none;
   }
-  
+
   .navigation-menu.mobile-open {
     display: flex;
     flex-direction: column;
@@ -479,85 +479,47 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     animation: slideDown 0.3s ease;
   }
-  
+
   @keyframes slideDown {
     from {
       opacity: 0;
       transform: translateY(-10px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  
+
   .mobile-menu-toggle {
     display: block;
   }
-  
+
   .nav-phone-text {
     display: none;
   }
 }
 
 /* ===================================
-   HERO SECTION
+   HERO SECTION - PINNED TO CONTAINER
    =================================== */
 .hero-section {
   position: relative;
-  min-height: 700px;
+  min-height: 750px; /* Increased height for better luxury feel */
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
-  background: #fffef2;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding: 80px 0;
-}
-
-.hero-text-container {
-  max-width: 650px;
-}
-
-.hero-badge {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 12px 20px;
-  border-radius: 0px;
-  border: 1px solid var(--gold-light);
-  margin-bottom: 32px;
-}
-
-.rating-stars {
-  display: flex;
-  gap: 4px;
-}
-
-.rating-text {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.hero-cta-buttons {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  background: var(--bg-primary);
 }
 
 .hero-image-container {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 50%;
+  /* Instead of right: 0, we start from the center and move right */
+  left: 20%; 
+  width: 65%;
   height: 100%;
   z-index: 1;
 }
@@ -566,7 +528,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  /* Ensures the doctor is centered within her half of the section */
+  object-position: center; 
 }
 
 .hero-overlay {
@@ -575,48 +538,62 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, var(--bg-primary) 0%, transparent 100%);
+  /* Wider gradient to bridge the gap between text and doctor */
+  background: linear-gradient(
+    90deg, 
+    var(--bg-primary) 0%, 
+    var(--bg-primary) 20%, 
+    rgba(255, 254, 242, 0.7) 45%, 
+    transparent 80%
+  );
+  z-index: 2;
 }
 
-@media (max-width: 1024px) {
-  .hero-section {
-    min-height: 600px;
-  }
-  
-  .hero-image-container {
-    width: 60%;
-  }
-  
-  .hero-text-container {
-    max-width: 500px;
-  }
+.hero-content-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  pointer-events: none;
 }
 
+.hero-text-container {
+  max-width: 550px; /* Tightened text width */
+  pointer-events: auto;
+}
+
+/* ===================================
+   MOBILE (PHONES)
+   =================================== */
 @media (max-width: 768px) {
   .hero-section {
-    min-height: auto;
     flex-direction: column;
-    padding: 60px 0;
+    min-height: auto;
+    padding-top: 0;
   }
-  
+
   .hero-image-container {
     position: relative;
+    left: 0;
     width: 100%;
-    height: 300px;
-    order: -1;
+    height: 400px;
   }
-  
-  .hero-content {
-    padding: 40px 0;
+
+  .hero-overlay {
+    background: linear-gradient(to bottom, transparent 60%, var(--bg-primary) 100%);
   }
-  
-  .hero-cta-buttons {
-    flex-direction: column;
+
+  .hero-content-wrapper {
+    margin-top: -80px; /* Overlaps card onto image */
+    padding: 0 20px 40px;
   }
-  
-  .btn-primary,
-  .btn-secondary-hero {
-    width: 100%;
+
+  .hero-text-container {
+    background: var(--bg-primary);
+    padding: 35px 25px;
+    border-radius: 30px 30px 0 0;
+    text-align: center;
+    box-shadow: 0 -15px 35px rgba(0,0,0,0.08);
   }
 }
 
@@ -695,72 +672,77 @@ body {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .about-main-image {
     height: 400px;
   }
 }
 
 /* ===================================
-   SERVICES SECTION
+   SERVICES SECTION - 32px PNG HOVER
    =================================== */
-.services-section {
-  background: var(--bg-secondary);
-}
-
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
-  margin-top: 60px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 50px;
 }
 
 .service-card {
-  background: var(--bg-primary);
-  padding: 40px 32px;
-  border-radius: 0px;
-  border: 1px solid transparent;
+  background: white;
+  padding: 40px 24px;
+  text-align: center;
+  border: 1px solid var(--border-light);
   transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  border-color: var(--gold-light);
-}
-
-.service-icon-container {
-  width: 64px;
-  height: 64px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: var(--pastel-blue-light);
-  border-radius: 0px;
-  margin-bottom: 24px;
-  color: var(--text-primary);
-  transition: all 0.3s ease;
 }
 
-.service-card:hover .service-icon-container {
-  background: var(--gold-light);
+/* Icon Container Fixed at 32px */
+.service-icon-container {
+  position: relative;
+  width: 86px;
+  height: 86px;
+  margin-bottom: 20px;
+}
+
+.service-icon {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-icon.hover-img {
+  opacity: 0;
+}
+
+/* Hover Swap Logic */
+.service-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.08);
+}
+
+.service-card:hover .service-icon.default {
+  opacity: 0;
+}
+
+.service-card:hover .service-icon.hover-img {
+  opacity: 1;
 }
 
 .service-title {
-  margin-bottom: 12px;
+  font-style: normal;
+  margin-bottom: 16px;
 }
 
 .service-description {
   color: var(--text-secondary);
   line-height: 1.7;
-}
-
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
 }
 
 /* ===================================
@@ -800,7 +782,7 @@ body {
 
 .carousel-image {
   width: 100%;
-  height: 500px;
+  height: 600px;
   object-fit: cover;
   border-radius: 0px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -865,79 +847,93 @@ body {
   .carousel-wrapper {
     gap: 12px;
   }
-  
+
   .carousel-button {
     width: 44px;
     height: 44px;
     min-width: 44px;
   }
-  
+
   .carousel-image {
     height: 350px;
   }
 }
 
 /* ===================================
-   REVIEWS SECTION
+   REVIEWS SECTION - FULL STYLES
    =================================== */
 .reviews-section {
-  background: var(--bg-secondary);
+  padding: 100px 0;
+  background: var(--bg-secondary); /* Soft neutral background */
 }
 
+/* 1. TOP RATING BADGE (The "4.9" Header) */
 .reviews-rating-badge {
   text-align: center;
-  margin-top: 40px;
+  margin-bottom: 60px;
 }
 
 .rating-display {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 20px;
   margin-bottom: 12px;
 }
 
 .rating-number {
-  font-size: 48px;
+  font-size: 56px;
   font-weight: 700;
   font-family: 'Playfair Display', serif;
-  color: var(--gold);
+  color: var(--text-primary);
 }
 
 .rating-stars-large {
   display: flex;
   gap: 4px;
+  color: var(--gold); /* #D4AF37 */
+  font-size: 24px;
 }
 
 .rating-count {
   color: var(--text-secondary);
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
+/* 2. REVIEWS GRID (3x2 Layout) */
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
-  margin-top: 60px;
+  grid-template-columns: repeat(3, 1fr); /* Exactly 3 cards per row */
+  gap: 24px;
+  margin-top: 40px;
 }
 
+/* 3. INDIVIDUAL REVIEW CARD */
 .review-card {
-  background: var(--bg-primary);
+  background: #ffffff;
   padding: 32px;
-  border-radius: 0px;
   border: 1px solid var(--border-light);
-  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  min-height: 320px; /* Keeps all cards aligned */
 }
 
 .review-card:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
+/* 4. AUTHOR INFO & AVATAR */
 .review-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .review-author {
@@ -949,54 +945,83 @@ body {
 .author-avatar {
   width: 48px;
   height: 48px;
-  min-width: 48px;
   border-radius: 50%;
-  background: var(--pastel-blue);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #ffffff; /* Contrast against the pastel colors */
+  text-transform: uppercase;
 }
 
 .author-info h4 {
-  margin-bottom: 4px;
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-bottom: 2px;
 }
 
 .review-date {
+  font-size: 12px;
   color: var(--text-light);
 }
 
+/* 5. CONTENT AREA */
 .review-rating {
-  display: flex;
-  gap: 4px;
+  color: var(--gold);
+  font-size: 14px;
   margin-bottom: 16px;
 }
 
 .review-text {
   color: var(--text-secondary);
+  font-size: 14px;
   line-height: 1.7;
-  margin-bottom: 20px;
+  font-style: italic;
+  margin-bottom: 24px;
+  flex-grow: 1; /* Pushes the badge to the bottom */
 }
 
+/* 6. GOOGLE VERIFIED BADGE */
 .google-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 6px 12px;
   background: var(--bg-secondary);
-  border-radius: 0px;
-  font-size: 12px;
-  color: var(--text-secondary);
+  font-size: 11px;
+  color: #4CAF50; /* Trust Green */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: fit-content;
 }
 
+/* 7. CTA BUTTON AREA */
 .reviews-cta {
   text-align: center;
   margin-top: 60px;
 }
 
-@media (max-width: 768px) {
+/* 8. RESPONSIVE DESIGN */
+@media (max-width: 1100px) {
   .reviews-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews-section {
+    padding: 60px 0;
+  }
+  
+  .reviews-grid {
+    grid-template-columns: 1fr; /* 1 card per row on mobile */
+    gap: 20px;
+  }
+
+  .rating-number {
+    font-size: 40px;
   }
 }
 
@@ -1075,15 +1100,15 @@ body {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .family-text-side {
     order: 2;
   }
-  
+
   .family-image-side {
     order: 1;
   }
-  
+
   .family-main-image {
     height: 400px;
   }
@@ -1172,7 +1197,7 @@ body {
   .location-content-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .location-map-container {
     min-height: 400px;
   }
@@ -1214,12 +1239,12 @@ body {
   .final-cta-section {
     padding: 60px 0;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .btn-primary,
   .btn-secondary-cta {
     width: 100%;
@@ -1361,7 +1386,7 @@ body {
     bottom: 20px;
     right: 20px;
   }
-  
+
   .floating-btn {
     width: 52px;
     height: 52px;
@@ -1378,6 +1403,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1386,9 +1412,12 @@ body {
 
 /* Pulse animation for loading */
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -1483,18 +1512,19 @@ button:focus-visible {
    PRINT STYLES
    =================================== */
 @media print {
+
   .navigation-header,
   .floating-buttons,
   .hero-cta-buttons,
   .cta-buttons {
     display: none !important;
   }
-  
+
   body {
     background: white;
     color: black;
   }
-  
+
   .hero-section,
   .services-section,
   .reviews-section,
