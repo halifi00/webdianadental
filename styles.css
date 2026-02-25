@@ -506,7 +506,8 @@ body {
    =================================== */
 .hero-section {
   position: relative;
-  min-height: 750px; /* Increased height for better luxury feel */
+  min-height: 750px;
+  /* Increased height for better luxury feel */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -518,7 +519,7 @@ body {
   position: absolute;
   top: 0;
   /* Instead of right: 0, we start from the center and move right */
-  left: 20%; 
+  left: 20%;
   width: 65%;
   height: 100%;
   z-index: 1;
@@ -529,7 +530,7 @@ body {
   height: 100%;
   object-fit: cover;
   /* Ensures the doctor is centered within her half of the section */
-  object-position: center; 
+  object-position: center;
 }
 
 .hero-overlay {
@@ -539,13 +540,11 @@ body {
   width: 100%;
   height: 100%;
   /* Wider gradient to bridge the gap between text and doctor */
-  background: linear-gradient(
-    90deg, 
-    var(--bg-primary) 0%, 
-    var(--bg-primary) 20%, 
-    rgba(255, 254, 242, 0.7) 45%, 
-    transparent 80%
-  );
+  background: linear-gradient(90deg,
+      var(--bg-primary) 0%,
+      var(--bg-primary) 20%,
+      rgba(255, 254, 242, 0.7) 45%,
+      transparent 80%);
   z-index: 2;
 }
 
@@ -558,7 +557,8 @@ body {
 }
 
 .hero-text-container {
-  max-width: 550px; /* Tightened text width */
+  max-width: 550px;
+  /* Tightened text width */
   pointer-events: auto;
 }
 
@@ -584,7 +584,8 @@ body {
   }
 
   .hero-content-wrapper {
-    margin-top: -80px; /* Overlaps card onto image */
+    margin-top: -80px;
+    /* Overlaps card onto image */
     padding: 0 20px 40px;
   }
 
@@ -593,7 +594,7 @@ body {
     padding: 35px 25px;
     border-radius: 30px 30px 0 0;
     text-align: center;
-    box-shadow: 0 -15px 35px rgba(0,0,0,0.08);
+    box-shadow: 0 -15px 35px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -869,7 +870,8 @@ body {
    =================================== */
 .reviews-section {
   padding: 100px 0;
-  background: var(--bg-secondary); /* Soft neutral background */
+  background: var(--bg-secondary);
+  /* Soft neutral background */
 }
 
 /* 1. TOP RATING BADGE (The "4.9" Header) */
@@ -896,7 +898,8 @@ body {
 .rating-stars-large {
   display: flex;
   gap: 4px;
-  color: var(--gold); /* #D4AF37 */
+  color: var(--gold);
+  /* #D4AF37 */
   font-size: 24px;
 }
 
@@ -910,7 +913,8 @@ body {
 /* 2. REVIEWS GRID (3x2 Layout) */
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Exactly 3 cards per row */
+  grid-template-columns: repeat(3, 1fr);
+  /* Exactly 3 cards per row */
   gap: 24px;
   margin-top: 40px;
 }
@@ -924,7 +928,8 @@ body {
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  min-height: 250px; /* Keeps all cards aligned */
+  min-height: 250px;
+  /* Keeps all cards aligned */
 }
 
 .review-card:hover {
@@ -956,7 +961,8 @@ body {
   justify-content: center;
   font-size: 16px;
   font-weight: 600;
-  color: #ffffff; /* Contrast against the pastel colors */
+  color: #ffffff;
+  /* Contrast against the pastel colors */
   text-transform: uppercase;
 }
 
@@ -984,7 +990,8 @@ body {
   line-height: 1.7;
   font-style: italic;
   margin-bottom: 24px;
-  flex-grow: 1; /* Pushes the badge to the bottom */
+  flex-grow: 1;
+  /* Pushes the badge to the bottom */
 }
 
 /* 6. GOOGLE VERIFIED BADGE */
@@ -995,7 +1002,8 @@ body {
   padding: 6px 12px;
   background: var(--bg-secondary);
   font-size: 11px;
-  color: #4CAF50; /* Trust Green */
+  color: #4CAF50;
+  /* Trust Green */
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -1003,10 +1011,13 @@ body {
 }
 
 .stars {
-    color: #ffbf00; /* This matches your --gold variable */
-    font-size: 1.2rem; /* Optional: makes them slightly bigger */
-    letter-spacing: 2px; /* Adds a little space between stars */
-    margin-bottom: 10px;
+  color: #ffbf00;
+  /* This matches your --gold variable */
+  font-size: 1.2rem;
+  /* Optional: makes them slightly bigger */
+  letter-spacing: 2px;
+  /* Adds a little space between stars */
+  margin-bottom: 10px;
 }
 
 /* 7. CTA BUTTON AREA */
@@ -1018,7 +1029,8 @@ body {
 /* 8. RESPONSIVE DESIGN */
 @media (max-width: 1100px) {
   .reviews-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablets */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 cards per row on tablets */
   }
 }
 
@@ -1026,9 +1038,10 @@ body {
   .reviews-section {
     padding: 60px 0;
   }
-  
+
   .reviews-grid {
-    grid-template-columns: 1fr; /* 1 card per row on mobile */
+    grid-template-columns: 1fr;
+    /* 1 card per row on mobile */
     gap: 20px;
   }
 
@@ -1302,8 +1315,9 @@ body {
 }
 
 .footer-link {
-  display: flex;
-  align-items: center;
+  display: inline-flex !important;
+  align-items: center !important;
+  width: auto !important;
   gap: 8px;
   color: var(--text-light);
   text-decoration: none;
@@ -1323,12 +1337,14 @@ body {
 
 .footer-address svg,
 .footer-hours svg {
-    width: 18px !important;
-    height: 18px !important;
-    min-width: 18px;
-    flex-shrink: 0;
-    margin-top: 2px; /* Adjusted from 4px to align better with text */
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  /* Adjusted from 4px to align better with text */
 }
+
 .footer-bottom {
   border-top: 1px solid rgba(188, 187, 180, 0.2);
   padding-top: 24px;
@@ -1340,12 +1356,16 @@ body {
 }
 
 .footer-link svg {
-    width: 18px !important;
-    height: 18px !important;
-    min-width: 18px;
-    transform-origin: center; /* Fixes origin misalignment */
-    display: inline-block;
-    flex-shrink: 0;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+  transform: none !important;
+  /* Prevents any skew from parent */
+  overflow: hidden !important;
+  /* Keeps the drawing inside the 18px box */
 }
 
 
@@ -1556,110 +1576,120 @@ button:focus-visible {
     page-break-inside: avoid;
   }
 }
+
 /* ===================================
    YOU SECTION
    =================================== */
 .meaning-section {
-    padding: 80px 0;
-    background-color: var(--bg-secondary); /* Your signature warm cream */
+  padding: 80px 0;
+  background-color: var(--bg-secondary);
+  /* Your signature warm cream */
 }
 
 .meaning-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
 }
 
 .meaning-content h2 {
-    margin-bottom: 25px;
-    color: var(--primary-color);
+  margin-bottom: 25px;
+  color: var(--primary-color);
 }
 
 .meaning-content p {
-    margin-bottom: 20px;
-    line-height: 1.8;
+  margin-bottom: 20px;
+  line-height: 1.8;
 }
 
 .meaning-values {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .value-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+
 }
 
 .value-icon {
-    color: #D4AF37; /* Gold color */
-    font-size: 20px;
+  color: #D4AF37;
+  /* Gold color */
+  font-size: 20px;
 }
 
 
 .meaning-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 /* Specific styling for the square logo */
 .square-logo-display {
-    width: 100%;
-    max-width: 400px; /* Adjust this number to make the logo smaller or larger */
-    height: auto;
-    aspect-ratio: 1 / 1; /* Ensures it stays a perfect square */
-    object-fit: contain;
-    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.05)); /* Adds a soft professional lift */
+  width: 100%;
+  max-width: 400px;
+  /* Adjust this number to make the logo smaller or larger */
+  height: auto;
+  aspect-ratio: 1 / 1;
+  /* Ensures it stays a perfect square */
+  object-fit: contain;
+  filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.05));
+  /* Adds a soft professional lift */
 }
 
 @media (max-width: 768px) {
-    .meaning-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .value-item {
-        justify-content: center;
-        text-align: left;
-    }
-    .square-logo-display {
-        max-width: 200px; /* Smaller logo on phones */
-        margin-top: 30px;
-    }
+  .meaning-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .value-item {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .square-logo-display {
+    max-width: 200px;
+    /* Smaller logo on phones */
+    margin-top: 30px;
+  }
 }
 
 .mission-highlight {
-    background-color: #e0eceb; /* Matching the light teal in your image */
-    padding-top: 20px;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 5px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    border-left: 5px solid var(--primary-color);
+  background-color: #e0eceb;
+  /* Matching the light teal in your image */
+  padding-top: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 5px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  border-left: 5px solid var(--primary-color);
 }
 
 .mission-highlight h3 {
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-    color: var(--text-primary);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--text-primary);
 }
 
 .italic-text {
-    font-style: italic;
-    color: #444;
+  font-style: italic;
+  color: #444;
 }
 
 .rounded-img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    /* This adds a nice professional depth to your hero photo */
-    box-shadow: 15px 15px 0px rgba(212, 175, 55, 0.1); 
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  /* This adds a nice professional depth to your hero photo */
+  box-shadow: 15px 15px 0px rgba(212, 175, 55, 0.1);
 }
 
 
